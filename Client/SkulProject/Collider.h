@@ -22,6 +22,7 @@ public:
 	Collider& operator =(Collider& collider) = delete;
 
 public:
+	void Initialize();
 	void Update();
 	void Render(HDC hDC);
 

@@ -1,13 +1,11 @@
 #pragma once
-#include "GameObject.h"
+#include "Character.h"
 
-class Animator;
-
-class Skul : public GameObject
+class Skul : public Character
 {
 public:
 	Skul();
-	~Skul();
+	virtual ~Skul();
 
 public:
 	virtual void Initialize() override;
@@ -15,9 +13,5 @@ public:
 	virtual void Update() override;
 	virtual void LateUpdate() override;
 	virtual void Render(HDC hDC) override;
-
-private:
-	Animator* _animator = nullptr;
-	wstring _animName = L"";
 };
 

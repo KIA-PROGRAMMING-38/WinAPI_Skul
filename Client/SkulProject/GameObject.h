@@ -15,10 +15,11 @@ public:
 	Transform* GetTransform() const { return _transform; }
 
 public:
-	virtual void Initialize();
-	virtual void FixedUpdate();
-	virtual void Update();
-	virtual void LateUpdate();
+	virtual void Initialize() override;
+	virtual void FixedUpdate() override;
+	virtual void Update() override;
+	virtual void LateUpdate() override;
+	virtual void Release() override;
 
 public:
 	virtual void OnCollisionEnter(Collider* collider) {}
@@ -36,12 +37,13 @@ public:
 
 		return component;
 	}
+
 	template <typename T>
 	T* GetComponent()
 	{
 		for (size_t i = 0; i < _components.size(); ++i)
 		{
-			if (typeid(_components[i]).name() == typeif(T).name())
+			if (typeid(*_components[i]).name() == typeid(T).name())
 				return dynamic_cast<T*>(_components[i]);
 		}
 

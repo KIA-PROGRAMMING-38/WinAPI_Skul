@@ -26,6 +26,11 @@ Collider::~Collider()
 {
 }
 
+void Collider::Initialize()
+{
+	_transform = GetGameObject()->GetComponent<Transform>();
+}
+
 void Collider::Update()
 {
 	// Object의 위치를 따라간다.
@@ -43,8 +48,10 @@ void Collider::Render(HDC hDC)
 	
 	//Vector2 position = Camera::GetInst()->GetRenderPos(_finalPos);
 	Vector2 position = _finalPos;
+	Vector2 scale = Vector2(_scale.x * _transform->GetScale().x, _scale.y * _transform->GetScale().y);
 	
-	Rectangle(hDC, (int)(position.x - _scale.x / 2.f), (int)(position.y - _scale.y / 2.f), (int)(position.x + _scale.x / 2.f), (int)(position.y + _scale.y / 2.f));
+	//Rectangle(hDC, (int)(position.x - _scale.x / 2.f), (int)(position.y - _scale.y / 2.f), (int)(position.x + _scale.x / 2.f), (int)(position.y + _scale.y / 2.f));
+	Rectangle(hDC, (int)(position.x), (int)(position.y), (int)(position.x + _scale.x), (int)(position.y + _scale.y));
 	
 	SelectObject(hDC, defaultPen);
 	SelectObject(hDC, defaultBrush);

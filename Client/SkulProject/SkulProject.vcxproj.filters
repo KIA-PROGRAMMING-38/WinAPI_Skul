@@ -169,6 +169,9 @@
     <ClInclude Include="Scene_Test.h">
       <Filter>01. Engine\5. Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>01. Engine\3. GameObject\Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SkulProject.rc">
@@ -249,6 +252,9 @@
     </ClCompile>
     <ClCompile Include="Scene_Test.cpp">
       <Filter>01. Engine\5. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>01. Engine\3. GameObject\Character</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

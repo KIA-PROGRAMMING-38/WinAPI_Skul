@@ -6,6 +6,7 @@
 #include "Transform.h"
 #include "Texture.h"
 #include "Animator.h"
+#include "Collider.h"
 
 Skul::Skul()
 {
@@ -17,34 +18,36 @@ Skul::~Skul()
 
 void Skul::Initialize()
 {
-	GameObject::Initialize();
+	Character::Initialize();
 
 	Texture* texture = ResourceManager::GetInstance()->LoadTexture(L"Player", L"Character\\Player.bmp");
-	_animator = AddComponent(new Animator());
-	_animator->CreateAnimation(L"Idle", texture, Vector2(0.f, 0.f), Vector2(100.f, 100.f), Vector2(100.f, 0.f), 0.7f, 4);
-	_animator->CreateAnimation(L"Move", texture, Vector2(0.f, 200.f), Vector2(100.f, 100.f), Vector2(100.f, 0.f), 0.5f, 8);
-	_animator->CreateAnimation(L"Attack", texture, Vector2(0.f, 500.f), Vector2(100.f, 100.f), Vector2(100.f, 0.f), 0.6f, 5);
-	_animator->Play(_animName, true);
+	Animator* animator = GetComponent<Animator>();
+	animator->CreateAnimation(L"Idle", texture, Vector2(0.f, 0.f), Vector2(100.f, 100.f), Vector2(100.f, 0.f), 0.7f, 4);
+	animator->CreateAnimation(L"Move", texture, Vector2(0.f, 200.f), Vector2(100.f, 100.f), Vector2(100.f, 0.f), 0.5f, 8);
+	animator->CreateAnimation(L"Attack", texture, Vector2(0.f, 500.f), Vector2(100.f, 100.f), Vector2(100.f, 0.f), 0.6f, 5);
+	animator->Play(L"Idle", true);
 
 	GetTransform()->SetScale(Vector2(2.f, 2.f));
+	GetComponent<Collider>()->SetScale(Vector2(100.f, 100.f));
 }
 
 void Skul::FixedUpdate()
 {
-	GameObject::FixedUpdate();
+	Character::FixedUpdate();
 }
 
 void Skul::Update()
 {
-	GameObject::Update();
+	Character::Update();
 }
 
 void Skul::LateUpdate()
 {
-	GameObject::LateUpdate();
+	Character::LateUpdate();
 }
 
 void Skul::Render(HDC hDC)
 {
-	_animator->Render(hDC);
+	Character::Render(hDC);
+	RenderCollider(hDC);
 }
