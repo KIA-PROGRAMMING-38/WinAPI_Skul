@@ -147,6 +147,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="FSM.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameResource.h" />
     <ClInclude Include="global_define.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="SkulProject.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Time.h" />
@@ -176,6 +178,7 @@
     <ClCompile Include="ColliderManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="FSM.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameResource.cpp" />
     <ClCompile Include="HandleStore.cpp" />
@@ -187,6 +190,7 @@
     <ClCompile Include="SkulProject.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="State.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transform.cpp" />
