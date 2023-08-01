@@ -48,6 +48,7 @@ void Animation::Render(HDC hDC)
 {
 	GameObject* object = _animator->GetGameObject();
 	Vector2 position = object->GetTransform()->GetPosition();
+	Vector2 scale = object->GetTransform()->GetScale();
 	
 	const AnimFrameData& curFrameData = _frameDatas[_curFrameIndex];
 	
@@ -57,8 +58,8 @@ void Animation::Render(HDC hDC)
 		hDC
 		, (int)(position.x - curFrameData.offset.x - curFrameData.elemSize.x / 2.f)
 		, (int)(position.y - curFrameData.offset.y - curFrameData.elemSize.y / 2.f)
-		, (int)(curFrameData.elemSize.x)
-		, (int)(curFrameData.elemSize.y)
+		, (int)(curFrameData.elemSize.x * scale.x)
+		, (int)(curFrameData.elemSize.y * scale.y)
 		, _texture->GetDC()
 		, (int)(curFrameData.startPoint.x)
 		, (int)(curFrameData.startPoint.y)
@@ -66,6 +67,8 @@ void Animation::Render(HDC hDC)
 		, (int)(curFrameData.elemSize.y)
 		, RGB(255, 0, 255)
 	);
+
+	//TransparentBlt(hDC, 100, 100, 150, 150, _texture->GetDC(), 5, 13, 50, 50, RGB(0, 0, 255));
 }
 
 void Animation::Create(Texture* texture, Vector2 startPoint, Vector2 elemSize, Vector2 nextStep, float duration, UINT frameCount)

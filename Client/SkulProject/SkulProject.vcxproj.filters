@@ -74,6 +74,9 @@
     <Filter Include="01. Engine\2. System\HandleStore">
       <UniqueIdentifier>{ccd4adbf-2fb7-4b23-9cd8-1b311e0da307}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Engine\3. GameObject\Player">
+      <UniqueIdentifier>{e655808f-3517-4563-9cc8-2cb45c36f2c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -160,6 +163,12 @@
     <ClInclude Include="HandleStore.h">
       <Filter>01. Engine\2. System\HandleStore</Filter>
     </ClInclude>
+    <ClInclude Include="Skul.h">
+      <Filter>01. Engine\3. GameObject\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene_Test.h">
+      <Filter>01. Engine\5. Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SkulProject.rc">
@@ -234,6 +243,12 @@
     </ClCompile>
     <ClCompile Include="HandleStore.cpp">
       <Filter>01. Engine\2. System\HandleStore</Filter>
+    </ClCompile>
+    <ClCompile Include="Skul.cpp">
+      <Filter>01. Engine\3. GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene_Test.cpp">
+      <Filter>01. Engine\5. Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

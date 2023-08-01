@@ -79,6 +79,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)Output\bin\</OutDir>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)Output\bin_debug\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Output\bin\</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -157,6 +163,8 @@
     <ClInclude Include="IBehaviour.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="PathManager.h" />
+    <ClInclude Include="Scene_Test.h" />
+    <ClInclude Include="Skul.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Scene.h" />
@@ -181,6 +189,8 @@
     <ClCompile Include="HandleStore.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="PathManager.cpp" />
+    <ClCompile Include="Scene_Test.cpp" />
+    <ClCompile Include="Skul.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
