@@ -17,6 +17,8 @@ using std::wstring;
 #include <map>
 using std::map;
 
+#include <typeinfo>
+
 // TransparentBlt를 구현해놓은 라이브러리를 불러오기 위한 코드
 #pragma comment(lib, "Msimg32.lib")
 
