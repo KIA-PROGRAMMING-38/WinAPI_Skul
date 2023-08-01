@@ -7,7 +7,7 @@ class ColliderManager
 	SINGLETON(ColliderManager)
 
 public:
-	void Init();
+	void Initialize();
 	void Update();
 	void Reset();
 

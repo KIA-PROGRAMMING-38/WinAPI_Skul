@@ -7,6 +7,7 @@
 #include "ResourceManager.h"
 #include "PathManager.h"
 #include "HandleStore.h"
+#include "SceneManager.h"
 
 #include "Texture.h"
 
@@ -58,15 +59,16 @@ int Core::Initialize(HINSTANCE hInstance, int cmdShow)
 	AdjustWindowRect(&rt, WS_OVERLAPPEDWINDOW, true);
 	SetWindowPos(_mainHWnd, nullptr, 100, 100, rt.right - rt.left, rt.bottom - rt.top, 0);
 
-	// 이중 버퍼링 용도의 텍스처를 만들고 DC를 가져온다.
-	_backBufferTexture = ResourceManager::GetInstance()->CreateTexture(L"BackBuffer", _resolution.x, _resolution.y);
-	_backBufferDC = _backBufferTexture->GetDC();
-
 	// Manager 초기화
     HandleStore::Initialize(_mainHWnd, _mainHDC);
 	PathManager::Initialize();
 	Time::Initialize();
 	Input::Initialize();
+    SceneManager::GetInstance()->Initialize();
+
+    // 이중 버퍼링 용도의 텍스처를 만들고 DC를 가져온다.
+    _backBufferTexture = ResourceManager::GetInstance()->CreateTexture(L"BackBuffer", _resolution.x, _resolution.y);
+    _backBufferDC = _backBufferTexture->GetDC();
 
 	return S_OK;
 }
@@ -100,7 +102,7 @@ void Core::Update()
 	Time::Update();
 	Input::Update();
 	//Camera::GetInst()->Update();
-	//SceneManager::GetInst()->Update();
+	SceneManager::GetInstance()->Update();
 	//ColliderManager::GetInst()->Update();
 	//UIManager::GetInst()->Update();
 }
@@ -108,9 +110,11 @@ void Core::Update()
 void Core::Render()
 {
 	// 화면 Clear
+    //HPEN oldPen = (HPEN)SelectObject(_backBufferDC, HandleStore::GetPen(PenType::Blue));
 	Rectangle(_backBufferDC, -1, -1, _resolution.x + 1, _resolution.y + 1);
+    //SelectObject(_backBufferDC, oldPen);
 
-	//SceneManager::GetInst()->Render(_backBufferDC);
+	SceneManager::GetInstance()->Render(_backBufferDC);
 	//Camera::GetInst()->Render(_backBufferDC);
 
 	// 메인 DC에 그린 것들을 옮긴다.

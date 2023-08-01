@@ -13,6 +13,7 @@ enum class GroupType
 
 enum class SceneType
 {
+	Test,
 	Tool,
 	Start,
 

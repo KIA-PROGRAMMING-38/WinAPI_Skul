@@ -10,7 +10,7 @@ public:
 	Scene* GetCurScene() { return _curScene; }
 
 public:
-	void Init();
+	void Initialize();
 	void Update();
 	void Render(HDC hDC);
 	void Release();

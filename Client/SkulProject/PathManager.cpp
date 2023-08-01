@@ -21,5 +21,5 @@ void PathManager::Initialize()
 		}
 	}
 
-	wcscat_s(_contentPath, 255, L"\\bin\\content\\");
+	wcscat_s(_contentPath, 255, L"\\bin\\Resource\\");
 }

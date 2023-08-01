@@ -11,6 +11,9 @@ HPEN HandleStore::_pens[(UINT)PenType::End] = { NULL };
 
 void HandleStore::Initialize(HWND mainHWnd, HDC mainHDC)
 {
+	_mainHWnd = mainHWnd;
+	_mainHDC = mainHDC;
+
 	_brushes[(UINT)BrushType::Hollow] = (HBRUSH)GetStockObject(HOLLOW_BRUSH);
 
 	_pens[(UINT)PenType::Red] = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));

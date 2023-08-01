@@ -15,7 +15,7 @@ public:
 	const vector<GameObject*>& GetGroupObject(GroupType type) { return _objectGroups[(UINT)type]; }
 
 public:
-	virtual void Init() = 0;
+	virtual void Initialize() = 0;
 	virtual void Update();
 	virtual void LateUpdate();
 	virtual void FixedUpdate();

@@ -9,7 +9,9 @@ public:
 
 public:
 	const Vector2& GetPosition() const { return _position; }
+	const Vector2& GetScale() const { return _scale; }
 
+	void SetScale(Vector2 scale) { _scale = scale; }
 	void SetPosition(Vector2 position) { _position = position; }
 
 public:
@@ -21,5 +23,6 @@ public:
 
 private:
 	Vector2 _position;
+	Vector2 _scale;
 };
 

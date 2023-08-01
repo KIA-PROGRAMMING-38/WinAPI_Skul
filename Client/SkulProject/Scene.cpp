@@ -20,10 +20,6 @@ Scene::~Scene()
 	}
 }
 
-void Scene::Init()
-{
-}
-
 void Scene::FixedUpdate()
 {
 	for (UINT i = 0; i < (UINT)GroupType::End; ++i)
