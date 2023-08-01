@@ -3,6 +3,7 @@
 
 #include "ColliderManager.h"
 
+#include "Scene_Test.h"
 #include "Scene.h"
 
 SceneManager::SceneManager()
@@ -16,8 +17,9 @@ SceneManager::~SceneManager()
 	Release();
 }
 
-void SceneManager::Init()
+void SceneManager::Initialize()
 {
+	_nextSceneType = SceneType::Test;
 }
 
 void SceneManager::Update()
@@ -61,11 +63,16 @@ void SceneManager::ChangeScene()
 
 	switch (_nextSceneType)
 	{
+		case SceneType::Test:
+			_curScene = new Scene_Test();
+			break;
 		case SceneType::Tool:
 			break;
 		case SceneType::Start:
 			break;
 	}
 
+	if (_curScene)
+		_curScene->Initialize();
 	_nextSceneType = SceneType::End;
 }

@@ -13,10 +13,17 @@ Animation::Animation()
 	, _name(L"")
 	, _curFrameIndex(0)
 	, _accTime(0.f)
+	, _isAnimFinished(false)
 {
 }
 
 Animation::Animation(const Animation& other)
+	: Component(other)
+	, _animator(other._animator)
+	, _name(other._name)
+	, _curFrameIndex(other._curFrameIndex)
+	, _accTime(other._accTime)
+	, _isAnimFinished(other._isAnimFinished)
 {
 }
 
@@ -48,6 +55,7 @@ void Animation::Render(HDC hDC)
 {
 	GameObject* object = _animator->GetGameObject();
 	Vector2 position = object->GetTransform()->GetPosition();
+	Vector2 scale = object->GetTransform()->GetScale();
 	
 	const AnimFrameData& curFrameData = _frameDatas[_curFrameIndex];
 	
@@ -57,8 +65,8 @@ void Animation::Render(HDC hDC)
 		hDC
 		, (int)(position.x - curFrameData.offset.x - curFrameData.elemSize.x / 2.f)
 		, (int)(position.y - curFrameData.offset.y - curFrameData.elemSize.y / 2.f)
-		, (int)(curFrameData.elemSize.x)
-		, (int)(curFrameData.elemSize.y)
+		, (int)(curFrameData.elemSize.x * scale.x)
+		, (int)(curFrameData.elemSize.y * scale.y)
 		, _texture->GetDC()
 		, (int)(curFrameData.startPoint.x)
 		, (int)(curFrameData.startPoint.y)
