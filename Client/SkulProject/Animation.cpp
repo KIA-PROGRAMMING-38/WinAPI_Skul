@@ -13,10 +13,17 @@ Animation::Animation()
 	, _name(L"")
 	, _curFrameIndex(0)
 	, _accTime(0.f)
+	, _isAnimFinished(false)
 {
 }
 
 Animation::Animation(const Animation& other)
+	: Component(other)
+	, _animator(other._animator)
+	, _name(other._name)
+	, _curFrameIndex(other._curFrameIndex)
+	, _accTime(other._accTime)
+	, _isAnimFinished(other._isAnimFinished)
 {
 }
 
@@ -67,8 +74,6 @@ void Animation::Render(HDC hDC)
 		, (int)(curFrameData.elemSize.y)
 		, RGB(255, 0, 255)
 	);
-
-	//TransparentBlt(hDC, 100, 100, 150, 150, _texture->GetDC(), 5, 13, 50, 50, RGB(0, 0, 255));
 }
 
 void Animation::Create(Texture* texture, Vector2 startPoint, Vector2 elemSize, Vector2 nextStep, float duration, UINT frameCount)

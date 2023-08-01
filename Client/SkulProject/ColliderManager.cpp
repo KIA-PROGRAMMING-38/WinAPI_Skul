@@ -15,7 +15,7 @@ ColliderManager::~ColliderManager()
 {
 }
 
-void ColliderManager::Init()
+void ColliderManager::Initialize()
 {
 }
 

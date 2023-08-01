@@ -6,7 +6,7 @@ class Animator;
 class Skul : public GameObject
 {
 public:
-	Skul(const wstring& animName);
+	Skul();
 	~Skul();
 
 public:
@@ -17,7 +17,7 @@ public:
 	virtual void Render(HDC hDC) override;
 
 private:
-	Animator* _animator;
-	wstring _animName;
+	Animator* _animator = nullptr;
+	wstring _animName = L"";
 };
 

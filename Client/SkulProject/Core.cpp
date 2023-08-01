@@ -64,7 +64,7 @@ int Core::Initialize(HINSTANCE hInstance, int cmdShow)
 	PathManager::Initialize();
 	Time::Initialize();
 	Input::Initialize();
-    SceneManager::GetInstance()->Init();
+    SceneManager::GetInstance()->Initialize();
 
     // 이중 버퍼링 용도의 텍스처를 만들고 DC를 가져온다.
     _backBufferTexture = ResourceManager::GetInstance()->CreateTexture(L"BackBuffer", _resolution.x, _resolution.y);

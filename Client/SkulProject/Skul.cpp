@@ -7,8 +7,7 @@
 #include "Texture.h"
 #include "Animator.h"
 
-Skul::Skul(const wstring& animName)
-	: _animName(animName)
+Skul::Skul()
 {
 }
 

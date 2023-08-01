@@ -17,7 +17,7 @@ SceneManager::~SceneManager()
 	Release();
 }
 
-void SceneManager::Init()
+void SceneManager::Initialize()
 {
 	_nextSceneType = SceneType::Test;
 }
